@@ -6,14 +6,14 @@ pipeline {
         stage("Setup script") {
             steps {
                 sh """
-                    pip3 install pytest    
+                    sudo pip3 install pytest    
                  """
             } //steps
         } //stage
         stage("Run unit tests") {
             steps {
                 sh """
-                   python -m pytest
+                   sudo python -m pytest
                 """    
             } //steps
         } //stage
@@ -21,7 +21,7 @@ pipeline {
     post {
         always {
             sh """
-               pip3 uninstall pytest -y
+               sudo pip3 uninstall pytest -y
             """
         } //always
     } //post
